@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -46,12 +46,28 @@
             margin-top: 15px;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
         .card {
             background: white;
             border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
         }
 
         .form-group {
@@ -86,7 +102,7 @@
             font-size: 0.85rem;
         }
 
-        .btn-validar {
+        .btn {
             width: 100%;
             padding: 15px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -99,53 +115,51 @@
             transition: transform 0.2s;
         }
 
-        .btn-validar:hover {
+        .btn:hover {
             transform: translateY(-2px);
         }
 
-        .btn-validar:active {
+        .btn:active {
             transform: translateY(0);
         }
 
-        .resultado {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            margin-bottom: 30px;
+        .btn-secondary {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
         }
 
-        .oculto {
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 10px;
             display: none;
+        }
+
+        .resultado.valido {
+            background: #e8f5e9;
+            border-left: 5px solid #4caf50;
+        }
+
+        .resultado.invalido {
+            background: #ffebee;
+            border-left: 5px solid #f44336;
         }
 
         .resultado-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
+            gap: 10px;
+            margin-bottom: 15px;
         }
 
         .icono {
-            font-size: 3rem;
-        }
-
-        .resultado-header h2 {
-            font-size: 1.8rem;
-            color: #333;
-        }
-
-        .resultado-detalles {
-            margin-top: 20px;
+            font-size: 2rem;
         }
 
         .detalle-item {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
         }
 
         .detalle-label {
@@ -158,50 +172,86 @@
             color: #333;
         }
 
-        .mensaje {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: 500;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
         }
 
-        .valido {
-            border-left: 5px solid #4caf50;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
 
-        .valido .resultado-header h2 {
-            color: #4caf50;
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
 
-        .invalido {
-            border-left: 5px solid #f44336;
-        }
-
-        .invalido .resultado-header h2 {
-            color: #f44336;
-        }
-
-        .informacion {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .informacion h3 {
-            color: #667eea;
-            margin-bottom: 15px;
-        }
-
-        .informacion ol {
-            padding-left: 25px;
-        }
-
-        .informacion li {
+        .historial-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
             margin-bottom: 10px;
-            line-height: 1.6;
-            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .historial-item.valido {
+            border-left: 4px solid #4caf50;
+        }
+
+        .historial-item.invalido {
+            border-left: 4px solid #f44336;
+        }
+
+        .historial-info {
+            flex: 1;
+        }
+
+        .historial-cedula {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .historial-fecha {
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .badge {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge.valido {
+            background: #4caf50;
+            color: white;
+        }
+
+        .badge.invalido {
+            background: #f44336;
+            color: white;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #666;
         }
 
         footer {
@@ -211,29 +261,17 @@
             opacity: 0.8;
         }
 
-        .footer-links {
-            margin-top: 10px;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-            opacity: 0.9;
-        }
-
-        .footer-links a:hover {
-            opacity: 1;
-            text-decoration: underline;
-        }
-
         @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
             header h1 {
                 font-size: 2rem;
-            }
-            
-            .card, .resultado, .informacion {
-                padding: 20px;
             }
         }
     </style>
@@ -241,7 +279,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Validador de Cédula de Identidad</h1>
+            <h1>🪪 Validador de Cédula de Identidad</h1>
             <p class="subtitle">Sistema de validación usando algoritmo Módulo 10</p>
             <div class="author-info">
                 <p><strong>Desarrollado por:</strong> Arowarlin</p>
@@ -249,11 +287,12 @@
             </div>
         </header>
 
-        <main>
+        <div class="grid">
             <div class="card">
+                <h2>Validar Cédula</h2>
                 <form id="formularioValidacion">
                     <div class="form-group">
-                        <label for="cedula">Ingrese número de cédula:</label>
+                        <label for="cedula">Número de cédula:</label>
                         <input 
                             type="text" 
                             id="cedula" 
@@ -265,149 +304,69 @@
                         <small>Formato: XXX-XXXXXXX-X (11 dígitos)</small>
                     </div>
                     
-                    <button type="submit" class="btn-validar">Validar Cédula</button>
+                    <button type="submit" class="btn">Validar Cédula</button>
                 </form>
-            </div>
 
-            <div id="resultado" class="resultado oculto">
-                <div class="resultado-header">
-                    <span class="icono" id="iconoResultado"></span>
-                    <h2 id="tituloResultado"></h2>
-                </div>
-                
-                <div class="resultado-detalles">
-                    <div class="detalle-item">
-                        <span class="detalle-label">Cédula ingresada:</span>
-                        <span class="detalle-valor" id="cedulaIngresada"></span>
+                <div id="resultado" class="resultado">
+                    <div class="resultado-header">
+                        <span class="icono" id="iconoResultado"></span>
+                        <h3 id="tituloResultado"></h3>
                     </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Secuencia:</span>
-                        <span class="detalle-valor" id="secuencia"></span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Número de documento:</span>
-                        <span class="detalle-valor" id="numeroDocumento"></span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Dígito verificador:</span>
-                        <span class="detalle-valor" id="digitoVerificador"></span>
-                    </div>
-                    <div class="detalle-item">
-                        <span class="detalle-label">Dígito calculado:</span>
-                        <span class="detalle-valor" id="digitoCalculado"></span>
-                    </div>
-                    <div class="mensaje" id="mensajeValidacion"></div>
+                    <div id="detallesResultado"></div>
                 </div>
             </div>
 
-            <div class="informacion">
-                <h3>¿Cómo funciona el algoritmo Módulo 10?</h3>
-                <ol>
-                    <li>Se toman los primeros 10 dígitos de la cédula</li>
-                    <li>Se multiplica cada dígito alternadamente por 1 y 2</li>
-                    <li>Se suman todos los resultados</li>
-                    <li>Se calcula el módulo 10 de la suma</li>
-                    <li>El dígito verificador es 10 menos el módulo (o 0 si el módulo es 0)</li>
-                </ol>
+            <div class="card">
+                <h2>📊 Estadísticas</h2>
+                <div id="estadisticas" class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="statTotal">0</div>
+                        <div class="stat-label">Total</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statValidas">0</div>
+                        <div class="stat-label">Válidas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statInvalidas">0</div>
+                        <div class="stat-label">Inválidas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="statPorcentaje">0%</div>
+                        <div class="stat-label">Éxito</div>
+                    </div>
+                </div>
+                <button class="btn btn-secondary" onclick="cargarEstadisticas()">Actualizar Estadísticas</button>
             </div>
-        </main>
+
+            <div class="card full-width">
+                <h2>📜 Historial de Validaciones</h2>
+                <button class="btn btn-secondary" onclick="cargarHistorial()" style="margin-bottom: 20px;">Cargar Historial</button>
+                <div id="historial"></div>
+            </div>
+        </div>
 
         <footer>
             <p>Sistema de Validación de Cédula v1.0 | Arowarlin - UASD</p>
-            <div class="footer-links">
-                <a href="https://github.com" target="_blank">GitHub</a>
-                <a href="https://uasd.edu.do" target="_blank">UASD</a>
-            </div>
+            <p>Powered by Supabase + Render</p>
         </footer>
     </div>
 
     <script>
-        class ValidadorCedula {
-            static validarFormato(cedula) {
-                const cedulaLimpia = cedula.replace(/\D/g, '');
-                
-                if (cedulaLimpia.length !== 11) {
-                    return {
-                        valido: false,
-                        error: 'La cédula debe tener 11 dígitos'
-                    };
-                }
-                
-                return {
-                    valido: true,
-                    cedulaLimpia: cedulaLimpia
-                };
-            }
-            
-            static calcularDigitoVerificador(cedula) {
-                const digitos = cedula.substring(0, 10).split('').map(Number);
-                let suma = 0;
-                
-                for (let i = 0; i < digitos.length; i++) {
-                    let multiplicador = (i % 2 === 0) ? 1 : 2;
-                    suma += digitos[i] * multiplicador;
-                }
-                
-                const modulo = suma % 10;
-                const digitoVerificador = modulo === 0 ? 0 : 10 - modulo;
-                
-                return digitoVerificador;
-            }
-            
-            static validarCedula(cedula) {
-                const formatoResult = this.validarFormato(cedula);
-                
-                if (!formatoResult.valido) {
-                    return formatoResult;
-                }
-                
-                const cedulaLimpia = formatoResult.cedulaLimpia;
-                const digitoIngresado = parseInt(cedulaLimpia[10]);
-                const digitoCalculado = this.calcularDigitoVerificador(cedulaLimpia);
-                
-                const esValida = digitoIngresado === digitoCalculado;
-                
-                return {
-                    valido: esValida,
-                    cedula: cedulaLimpia,
-                    digitoVerificador: digitoIngresado,
-                    digitoCalculado: digitoCalculado,
-                    mensaje: esValida ? 'Cédula válida' : 'Cédula inválida - dígito verificador incorrecto'
-                };
-            }
-            
-            static extraerInformacion(cedula) {
-                const cedulaLimpia = cedula.replace(/\D/g, '');
-                
-                if (cedulaLimpia.length !== 11) {
-                    return null;
-                }
-                
-                const secuencia = cedulaLimpia.substring(0, 3);
-                const numeroDocumento = cedulaLimpia.substring(3, 10);
-                const digitoVerificador = cedulaLimpia[10];
-                
-                return {
-                    secuencia: secuencia,
-                    numeroDocumento: numeroDocumento,
-                    digitoVerificador: digitoVerificador,
-                    cedulaFormateada: `${secuencia}-${numeroDocumento}-${digitoVerificador}`
-                };
-            }
-        }
+        const API_URL = window.location.origin;
 
-        document.getElementById('formularioValidacion').addEventListener('submit', (e) => {
+        document.getElementById('formularioValidacion').addEventListener('submit', async (e) => {
             e.preventDefault();
             
             const cedulaInput = document.getElementById('cedula');
             const cedula = cedulaInput.value.trim();
             
             if (!cedula) {
-                mostrarError('Por favor ingrese un número de cédula');
+                alert('Por favor ingrese un número de cédula');
                 return;
             }
             
-            validarCedula(cedula);
+            await validarCedula(cedula);
         });
 
         document.getElementById('cedula').addEventListener('input', (e) => {
@@ -422,66 +381,142 @@
             e.target.value = valor;
         });
 
-        function validarCedula(cedula) {
-            const resultado = ValidadorCedula.validarCedula(cedula);
-            const informacion = ValidadorCedula.extraerInformacion(cedula);
-            
-            mostrarResultado({
-                ...resultado,
-                informacion: informacion
-            });
+        async function validarCedula(cedula) {
+            try {
+                const response = await fetch(`${API_URL}/api/validar`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ cedula })
+                });
+                
+                const data = await response.json();
+                
+                if (data.error) {
+                    mostrarError(data.error);
+                    return;
+                }
+                
+                mostrarResultado(data);
+                cargarEstadisticas();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                mostrarError('Error al conectar con el servidor');
+            }
         }
 
         function mostrarResultado(data) {
             const resultadoDiv = document.getElementById('resultado');
             const iconoResultado = document.getElementById('iconoResultado');
             const tituloResultado = document.getElementById('tituloResultado');
+            const detallesDiv = document.getElementById('detallesResultado');
             
-            resultadoDiv.classList.remove('oculto', 'valido', 'invalido');
+            resultadoDiv.className = 'resultado';
+            resultadoDiv.classList.add(data.valido ? 'valido' : 'invalido');
+            resultadoDiv.style.display = 'block';
             
-            if (data.valido) {
-                resultadoDiv.classList.add('valido');
-                iconoResultado.textContent = '✓';
-                tituloResultado.textContent = 'Cédula Válida';
-            } else {
-                resultadoDiv.classList.add('invalido');
-                iconoResultado.textContent = '✗';
-                tituloResultado.textContent = 'Cédula Inválida';
-            }
+            iconoResultado.textContent = data.valido ? '✓' : '✗';
+            tituloResultado.textContent = data.valido ? 'Cédula Válida' : 'Cédula Inválida';
+            
+            let detallesHTML = '';
             
             if (data.informacion) {
-                document.getElementById('cedulaIngresada').textContent = data.informacion.cedulaFormateada || data.cedula;
-                document.getElementById('secuencia').textContent = data.informacion.secuencia || 'N/A';
-                document.getElementById('numeroDocumento').textContent = data.informacion.numeroDocumento || 'N/A';
-                document.getElementById('digitoVerificador').textContent = data.digitoVerificador || 'N/A';
-                document.getElementById('digitoCalculado').textContent = data.digitoCalculado || 'N/A';
+                detallesHTML = `
+                    <div class="detalle-item">
+                        <span class="detalle-label">Cédula:</span>
+                        <span class="detalle-valor">${data.informacion.cedulaFormateada}</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Secuencia:</span>
+                        <span class="detalle-valor">${data.informacion.secuencia}</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Documento:</span>
+                        <span class="detalle-valor">${data.informacion.numeroDocumento}</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Dígito Verificador:</span>
+                        <span class="detalle-valor">${data.digitoVerificador}</span>
+                    </div>
+                    <div class="detalle-item">
+                        <span class="detalle-label">Dígito Calculado:</span>
+                        <span class="detalle-valor">${data.digitoCalculado}</span>
+                    </div>
+                `;
             }
             
-            document.getElementById('mensajeValidacion').textContent = data.mensaje || data.error || '';
-            
-            resultadoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            detallesDiv.innerHTML = detallesHTML;
         }
 
         function mostrarError(mensaje) {
             const resultadoDiv = document.getElementById('resultado');
             const iconoResultado = document.getElementById('iconoResultado');
             const tituloResultado = document.getElementById('tituloResultado');
+            const detallesDiv = document.getElementById('detallesResultado');
             
-            resultadoDiv.classList.remove('oculto', 'valido');
-            resultadoDiv.classList.add('invalido');
+            resultadoDiv.className = 'resultado invalido';
+            resultadoDiv.style.display = 'block';
             
             iconoResultado.textContent = '⚠';
             tituloResultado.textContent = 'Error';
-            
-            document.getElementById('cedulaIngresada').textContent = '-';
-            document.getElementById('secuencia').textContent = '-';
-            document.getElementById('numeroDocumento').textContent = '-';
-            document.getElementById('digitoVerificador').textContent = '-';
-            document.getElementById('digitoCalculado').textContent = '-';
-            document.getElementById('mensajeValidacion').textContent = mensaje;
-            
-            resultadoDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            detallesDiv.innerHTML = `<p>${mensaje}</p>`;
         }
+
+        async function cargarEstadisticas() {
+            try {
+                const response = await fetch(`${API_URL}/api/estadisticas`);
+                const data = await response.json();
+                
+                document.getElementById('statTotal').textContent = data.total;
+                document.getElementById('statValidas').textContent = data.validas;
+                document.getElementById('statInvalidas').textContent = data.invalidas;
+                document.getElementById('statPorcentaje').textContent = `${data.porcentajeValidas}%`;
+                
+            } catch (error) {
+                console.error('Error al cargar estadísticas:', error);
+            }
+        }
+
+        async function cargarHistorial() {
+            try {
+                const response = await fetch(`${API_URL}/api/historial?limit=20`);
+                const data = await response.json();
+                
+                const historialDiv = document.getElementById('historial');
+                
+                if (data.validaciones.length === 0) {
+                    historialDiv.innerHTML = '<div class="no-data">No hay validaciones registradas</div>';
+                    return;
+                }
+                
+                let html = '';
+                data.validaciones.forEach(v => {
+                    const fecha = new Date(v.fecha).toLocaleString('es-DO');
+                    const clase = v.valido ? 'valido' : 'invalido';
+                    const badgeTexto = v.valido ? 'VÁLIDA' : 'INVÁLIDA';
+                    
+                    html += `
+                        <div class="historial-item ${clase}">
+                            <div class="historial-info">
+                                <div class="historial-cedula">${v.cedula}</div>
+                                <div class="historial-fecha">${fecha}</div>
+                            </div>
+                            <span class="badge ${clase}">${badgeTexto}</span>
+                        </div>
+                    `;
+                });
+                
+                historialDiv.innerHTML = html;
+                
+            } catch (error) {
+                console.error('Error al cargar historial:', error);
+                document.getElementById('historial').innerHTML = '<div class="no-data">Error al cargar historial</div>';
+            }
+        }
+
+        cargarEstadisticas();
     </script>
 </body>
 </html>
